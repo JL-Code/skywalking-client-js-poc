@@ -8,6 +8,21 @@
   </div>
 </template>
 
+<script>
+import ClientMonitor from "skywalking-client-js";
+export default {
+  name: "App",
+  mounted() {
+    ClientMonitor.register({
+      service: "sky-clientjs-poc",
+      pagePath: location.href,
+      enableSPA: true,
+      serviceVersion: "v1.0.0"
+    });
+  }
+};
+</script>
+
 <style lang="less">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
